@@ -50,6 +50,4 @@ public class UserTest {
         assertEquals("Business2020",testUser.getPassword());
     }
 
-
-
 }
