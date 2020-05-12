@@ -53,6 +53,23 @@ public class Sql2oCategoryDao implements CategoryDao {
 
     @Override
     public void deleteCategoryById(int id) {
+        try (Connection con=sql2o.open()){
+            String sql="DELETE FROM categories WHERE id=:id";
+            con.createQuery(sql).addParameter("id",id).executeUpdate();
+
+        }
+
+    }
+
+    @Override
+    public void clearAll() {
+        try (Connection con=sql2o.open()){
+            String sql="DELETE FROM categories ";
+            con.createQuery(sql).executeUpdate();
+
+
+
+        }
 
     }
 }

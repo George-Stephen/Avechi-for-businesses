@@ -18,4 +18,5 @@ public interface CategoryDao {
 
     //delete
     void deleteCategoryById(int id);
+    void clearAll();
 }
