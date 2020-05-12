@@ -18,6 +18,8 @@ public interface BusinessDao {
     List<Business> searchByCategory(int category_id);
     Business findById(int id);
     List<Business> filterByMostRecent();
+    List<Business> getAllBusinessesOwnedByUser(int user_id);
+
 
 
     //update

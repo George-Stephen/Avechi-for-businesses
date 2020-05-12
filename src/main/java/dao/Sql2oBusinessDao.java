@@ -6,6 +6,7 @@ import objects.category;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Sql2oBusinessDao implements BusinessDao {
@@ -68,6 +69,21 @@ public class Sql2oBusinessDao implements BusinessDao {
             String sql="SELECT * FROM business ORDER BY creation DESC";
             return con.createQuery(sql)
                     .executeAndFetch(Business.class);
+        }
+    }
+
+    @Override
+    public List<Business> getAllBusinessesOwnedByUser(int user_id) {
+        try (Connection con=sql2o.open()){
+            String sql="SELECT business_id FROM business_users WHERE user_id=:user_id";
+            List<Integer> businessIds= con.createQuery(sql)
+                    .addParameter("user_id",user_id)
+                    .executeAndFetch(Integer.class);
+            List<Business> businesses=new ArrayList<>();
+            for(Integer businessId :businessIds){
+                businesses.add(findById(businessId));
+            }
+            return businesses;
         }
     }
 

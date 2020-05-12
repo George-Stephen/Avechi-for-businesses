@@ -150,4 +150,6 @@ public class Sql2oBusinessDaoTest {
         assertEquals(null,sql2oBusinessDao.findById(business.getId()));
 
     }
+
+
 }
