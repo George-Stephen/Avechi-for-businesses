@@ -12,6 +12,7 @@ public interface CategoryDao {
 
     //read
     List<category> getAll();
+    category findById(int id);
 
     //update
     void updateCategoryById(int id,category updatedCategory);
