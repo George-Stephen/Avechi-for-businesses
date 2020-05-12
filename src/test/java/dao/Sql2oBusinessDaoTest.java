@@ -119,6 +119,18 @@ public class Sql2oBusinessDaoTest {
 
     @Test
     public void updateBusinessById() {
+        Business business=new Business("Ruru Crafts","Ruth Wangui","ruru@crafts.com","0714567895",1,"www" +
+                ".rurucrafts.com");
+        String oldBusinessName=business.getName();
+        sql2oBusinessDao.add(business,1);
+        Business updatedBusiness=new Business("Fabulous Jewelery","Ruth Wangui","ruru@crafts.com","0714567895",1,"www" +
+                ".rurucrafts.com");
+
+        sql2oBusinessDao.updateBusinessById(business.getId(),updatedBusiness);
+        System.out.println(oldBusinessName);
+        System.out.println(sql2oBusinessDao.findById(business.getId()).getName());
+        assertNotEquals(oldBusinessName,sql2oBusinessDao.findById(business.getId()).getName());
+
     }
 
     @Test
