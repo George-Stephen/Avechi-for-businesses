@@ -84,6 +84,17 @@ public class Sql2oBusinessDaoTest {
 
     @Test
     public void findByIdReturnsCorrectInstance() {
+        Business business=new Business("Ruru Crafts","Ruth Wangui","ruru@crafts.com","0714567895",1,"www" +
+                ".rurucrafts.com");
+        Business otherbusiness=new Business("Perfect Wedding","Lillian Emukule","perfect@weddings.com","0714567895",
+                1, "www.perfectweddings.com");
+        Business thirdbusiness=new Business("Super Beauty","Sylvia Achach","super@beauty.com","0714567895",
+                3, "www.superbeauty.com");
+        sql2oBusinessDao.add(business,1);
+        sql2oBusinessDao.add(otherbusiness,2);
+        sql2oBusinessDao.add(thirdbusiness,3);
+        assertEquals(thirdbusiness,sql2oBusinessDao.findById(thirdbusiness.getId()));
+        assertEquals(business,sql2oBusinessDao.findById(business.getId()));
 
     }
 
