@@ -46,8 +46,8 @@ public class Sql2oBusinessDaoTest {
                 ".rurucrafts.com");
         int originalBusinessId=business.getId();
         sql2oBusinessDao.add(business,1);
-
         assertNotEquals(originalBusinessId,business.getId());
+
     }
 
     @Test
@@ -78,12 +78,13 @@ public class Sql2oBusinessDaoTest {
         sql2oBusinessDao.add(business,1);
         sql2oBusinessDao.add(otherbusiness,2);
         sql2oBusinessDao.add(thirdbusiness,3);
-        assertEquals(3,sql2oBusinessDao.searchByCategory(1).size());
+        assertEquals(2,sql2oBusinessDao.searchByCategory(1).size());
 
     }
 
     @Test
-    public void findById() {
+    public void findByIdReturnsCorrectInstance() {
+
     }
 
     @Test

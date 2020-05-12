@@ -20,8 +20,8 @@ public class Sql2oBusinessDao implements BusinessDao {
     public void add(Business business, int user_id) {
 
         try (Connection con=sql2o.open()){
-            String queryAddBusiness="INSERT INTO business (name,owner,email,phone,category,website,creation) " +
-                    "VALUES (:name,:owner,:email,:phone,:category,:website,:creation) ";
+            String queryAddBusiness="INSERT INTO business (name,owner,email,phone,category_id,website,creation) " +
+                    "VALUES (:name,:owner,:email,:phone,:category_id,:website,:creation) ";
             String joinQuery="INSERT INTO business_users (user_id,business_id) VALUES (:user_id,:business_id)";
             int id=(int) con.createQuery(queryAddBusiness,true)
                     .bind(business)
