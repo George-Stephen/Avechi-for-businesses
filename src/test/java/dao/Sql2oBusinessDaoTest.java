@@ -8,6 +8,8 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 public class Sql2oBusinessDaoTest {
@@ -100,6 +102,19 @@ public class Sql2oBusinessDaoTest {
 
     @Test
     public void filterByMostRecent() {
+        Business business=new Business("Ruru Crafts","Ruth Wangui","ruru@crafts.com","0714567895",1,"www" +
+                ".rurucrafts.com");
+        sql2oBusinessDao.add(business,1);
+        Business otherbusiness=new Business("Perfect Wedding","Lillian Emukule","perfect@weddings.com","0714567895",
+                1, "www.perfectweddings.com");
+        sql2oBusinessDao.add(otherbusiness,2);
+        Business thirdbusiness=new Business("Super Beauty","Sylvia Achach","super@beauty.com","0714567895",
+                3, "www.superbeauty.com");
+
+
+        sql2oBusinessDao.add(thirdbusiness,3);
+
+        assertEquals(thirdbusiness,sql2oBusinessDao.filterByMostRecent().get(0));
     }
 
     @Test
