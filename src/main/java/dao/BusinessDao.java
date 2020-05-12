@@ -25,6 +25,6 @@ public interface BusinessDao {
 
     //delete
 
-    void deleteById(int business_id,int user_id);
+    void deleteById(int business_id);
     void clearAll();
 }

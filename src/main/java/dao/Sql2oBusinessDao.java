@@ -79,17 +79,20 @@ public class Sql2oBusinessDao implements BusinessDao {
             con.createQuery(sql)
                     .addParameter("id",id)
                     .bind(updatedBusiness)
-
                     .executeUpdate();
 
         }
 
-
-
     }
 
     @Override
-    public void deleteById(int business_id, int user_id) {
+    public void deleteById(int business_id) {
+        try (Connection con=sql2o.open()){
+            String sql="DELETE FROM business WHERE id=:id";
+            String sql2="DELETE FROM business WHERE business_id=:id";
+            con.createQuery(sql).addParameter("id",business_id).executeUpdate();
+            con.createQuery(sql2).addParameter("id",business_id).executeUpdate();
+        }
 
     }
 
