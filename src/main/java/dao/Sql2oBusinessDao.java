@@ -72,7 +72,17 @@ public class Sql2oBusinessDao implements BusinessDao {
     }
 
     @Override
-    public void updateBusinessById(int id) {
+    public void updateBusinessById(int id,Business business) {
+        try (Connection con=sql2o.open()){
+            String sql="UPDATE business SET name=:name,owner=:owner,email=:email,phone=:phone," +
+                    "category_id=:category_id,website=:website,creation=:creation WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("id",id)
+                    .bind(business)
+                    .executeUpdate();
+
+        }
+
 
 
     }
