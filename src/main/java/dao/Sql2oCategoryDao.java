@@ -18,7 +18,7 @@ public class Sql2oCategoryDao implements CategoryDao {
     @Override
     public void add(category newCategory) {
         try(Connection con=sql2o.open()){
-            String sql="INSERT INTO categories (name,description) VALUES (:name,:description) ";
+            String sql="INSERT INTO categories (name,description) VALUES (:category,:description) ";
 
             int id=(int) con.createQuery(sql,true)
                     .bind(newCategory)
