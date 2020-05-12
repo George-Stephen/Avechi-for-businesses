@@ -9,6 +9,8 @@ public class Sql2oBusinessDao implements BusinessDao {
     @Override
     public void add(Business business, User user) {
 
+
+
     }
 
     @Override

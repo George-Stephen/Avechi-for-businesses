@@ -1,10 +1,47 @@
 package objects;
 
+import dao.Sql2oBusinessDao;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExternalResource;
+import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
 
-public class BusinessTest {
+public class BusinessTest{
+
+    private static Sql2oBusinessDao sql2oBusinessDao;
+    @Before
+    public void setUp() throws Exception {
+        //uncomment the two lines below to run locally and change to your  credentials
+        String connectionString = "jdbc:postgresql://localhost:5432/azure_test";
+
+
+
+
+        sql2o=new Sql2oDepartmentsDao(sql2o);
+        sql2oUsersDao=new Sql2oUsersDao(sql2o);
+        sql2oNewsDao=new Sql2oNewsDao(sql2o);
+        System.out.println("connected to database");
+        conn=sql2o.open();
+
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        sql2oDepartmentsDao.clearAll();
+        sql2oUsersDao.clearAll();
+        sql2oNewsDao.clearAll();
+        System.out.println("clearing database");
+    }
+    @AfterClass
+    public static void shutDown() throws Exception{
+        conn.close();
+        System.out.println("connection closed");
+    }
+
 
     @Test
     public void instanciatesBusiness_true(){
