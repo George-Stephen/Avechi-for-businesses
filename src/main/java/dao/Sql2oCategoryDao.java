@@ -1,5 +1,6 @@
 package dao;
 
+import objects.Business;
 import objects.category;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -17,7 +18,7 @@ public class Sql2oCategoryDao implements CategoryDao {
     @Override
     public void add(category newCategory) {
         try(Connection con=sql2o.open()){
-            String sql="INSERT INTO category (name,description) VALUES (:name,:description) ";
+            String sql="INSERT INTO categories (name,description) VALUES (:name,:description) ";
 
             int id=(int) con.createQuery(sql,true)
                     .bind(newCategory)
@@ -30,11 +31,23 @@ public class Sql2oCategoryDao implements CategoryDao {
 
     @Override
     public List<category> getAll() {
-        return null;
+        try (Connection con=sql2o.open()){
+            String sql="SELECT * FROM categories";
+            return con.createQuery(sql)
+                    .executeAndFetch(category.class);
+        }
     }
 
     @Override
-    public void updateCategoryById(int id) {
+    public void updateCategoryById(int id,category updatedCategory) {
+        try (Connection con=sql2o.open()){
+            String sql="UPDATE categories SET name=:name,description=:description WHERE id=:id";
+            con.createQuery(sql)
+                    .addParameter("id",id)
+                    .bind(updatedCategory)
+                    .executeUpdate();
+
+        }
 
     }
 
