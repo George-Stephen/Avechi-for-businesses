@@ -2,6 +2,7 @@ package dao;
 
 import objects.Business;
 import objects.User;
+import objects.category;
 
 import java.util.List;
 
@@ -14,7 +15,7 @@ public interface BusinessDao {
     //read
 
     List<Business> getAll();
-    List<Business> searchByCategory(String category);
+    List<Business> searchByCategory(int category_id);
     Business findById(int id);
     List<Business> filterByMostRecent();
 

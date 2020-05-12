@@ -2,6 +2,7 @@ package dao;
 
 import objects.Business;
 import objects.User;
+import objects.category;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
@@ -20,7 +21,7 @@ public class Sql2oBusinessDao implements BusinessDao {
 
         try (Connection con=sql2o.open()){
             String queryAddBusiness="INSERT INTO business (name,owner,email,phone,category,website,creation) " +
-                    "VALUES (:name,:owner,:email,:phone,:category,:website,:date) ";
+                    "VALUES (:name,:owner,:email,:phone,:category,:website,:creation) ";
             String joinQuery="INSERT INTO business_users (user_id,business_id) VALUES (:user_id,:business_id)";
             int id=(int) con.createQuery(queryAddBusiness,true)
                     .bind(business)
@@ -46,8 +47,11 @@ public class Sql2oBusinessDao implements BusinessDao {
     }
 
     @Override
-    public List<Business> searchByCategory(String category) {
-        return null;
+    public List<Business> searchByCategory(int category_id) {
+        try (Connection con=sql2o.open()){
+            String sql="SELECT * FROM business WHERE category_id=:category_id";
+            return con.createQuery(sql).addParameter("category_id",category_id).executeAndFetch(Business.class);
+        }
     }
 
     @Override

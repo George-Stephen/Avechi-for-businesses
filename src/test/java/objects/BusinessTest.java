@@ -137,4 +137,21 @@ public class BusinessTest{
 
         assertNotEquals(originalBusinessId,business.getId());
     }
+
+    @Test
+    public void allInstancesAreReturned() {
+        Business business=new Business("Ruru Crafts","Ruth Wangui","ruru@crafts.com","0714567895","Jewelry","www" +
+                ".rurucrafts.com");
+        Business otherbusiness=new Business("Perfect Wedding","Lillian Emukule","perfect@weddings.com","0714567895",
+                "Wedding", "www.perfectweddings.com");
+        Business thirdbusiness=new Business("Super Beauty","Sylvia Achach","super@beauty.com","0714567895",
+                "Beauty", "www.superbeauty.com");
+
+        sql2oBusinessDao.add(business,1);
+        sql2oBusinessDao.add(otherbusiness,2);
+        sql2oBusinessDao.add(thirdbusiness,3);
+        System.out.println(sql2oBusinessDao.getAll().size());
+
+        assertEquals(3,sql2oBusinessDao.getAll().size());
+    }
 }

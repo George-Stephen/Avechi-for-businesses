@@ -12,8 +12,8 @@ public class Business {
     private String phone ;
     private String category;
     private String website;
-    private Timestamp date;
-    private Date currentDate= new Date();
+    private Timestamp creation;
+    private Date date= new Date();
 
     public Business(String name, String owner, String email, String phone, String category, String website) {
         this.name = name;
@@ -22,7 +22,7 @@ public class Business {
         this.phone = phone;
         this.category = category;
         this.website = website;
-        this.date=new Timestamp(currentDate.getTime());
+        this.creation=new Timestamp(date.getTime());
     }
 
     @Override
@@ -36,12 +36,12 @@ public class Business {
                 Objects.equals(phone, business.phone) &&
                 Objects.equals(category, business.category) &&
                 Objects.equals(website, business.website) &&
-                Objects.equals(date, business.date);
+                Objects.equals(creation, business.creation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, owner, email, phone, category, website, date);
+        return Objects.hash(name, owner, email, phone, category, website, creation);
     }
 
     public int getId() {
@@ -100,11 +100,11 @@ public class Business {
         this.website = website;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getCreation() {
+        return creation;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setCreation(Timestamp creation) {
+        this.creation = creation;
     }
 }
