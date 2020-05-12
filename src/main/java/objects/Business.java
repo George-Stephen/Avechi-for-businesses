@@ -1,6 +1,7 @@
 package objects;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 public class Business {
@@ -9,17 +10,19 @@ public class Business {
     private String owner;
     private String email;
     private String phone ;
-    private String category;
+    private int category_id;
     private String website;
-    private Timestamp date;
+    private Timestamp creation;
+    private Date date= new Date();
 
-    public Business(String name, String owner, String email, String phone, String category, String website) {
+    public Business(String name, String owner, String email, String phone, int category_id, String website) {
         this.name = name;
         this.owner = owner;
         this.email = email;
         this.phone = phone;
-        this.category = category;
+        this.category_id = category_id;
         this.website = website;
+        this.creation=new Timestamp(date.getTime());
     }
 
     @Override
@@ -31,14 +34,14 @@ public class Business {
                 Objects.equals(owner, business.owner) &&
                 Objects.equals(email, business.email) &&
                 Objects.equals(phone, business.phone) &&
-                Objects.equals(category, business.category) &&
+                Objects.equals(category_id, business.category_id) &&
                 Objects.equals(website, business.website) &&
-                Objects.equals(date, business.date);
+                Objects.equals(creation, business.creation);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, owner, email, phone, category, website, date);
+        return Objects.hash(name, owner, email, phone, category_id, website, creation);
     }
 
     public int getId() {
@@ -81,12 +84,12 @@ public class Business {
         this.phone = phone;
     }
 
-    public String getCategory() {
-        return category;
+    public int getCategory_id() {
+        return category_id;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setCategory_id(int category_id) {
+        this.category_id = category_id;
     }
 
     public String getWebsite() {
@@ -97,11 +100,11 @@ public class Business {
         this.website = website;
     }
 
-    public Timestamp getDate() {
-        return date;
+    public Timestamp getCreation() {
+        return creation;
     }
 
-    public void setDate(Timestamp date) {
-        this.date = date;
+    public void setCreation(Timestamp creation) {
+        this.creation = creation;
     }
 }
