@@ -1,6 +1,7 @@
 package objects;
 
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.Objects;
 
 public class Business {
@@ -12,6 +13,7 @@ public class Business {
     private String category;
     private String website;
     private Timestamp date;
+    private Date currentDate= new Date();
 
     public Business(String name, String owner, String email, String phone, String category, String website) {
         this.name = name;
@@ -20,6 +22,7 @@ public class Business {
         this.phone = phone;
         this.category = category;
         this.website = website;
+        this.date=new Timestamp(currentDate.getTime());
     }
 
     @Override

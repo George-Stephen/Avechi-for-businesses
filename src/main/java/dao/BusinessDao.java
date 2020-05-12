@@ -9,7 +9,7 @@ public interface BusinessDao {
 
     //create
 
-    void add(Business business, User user);
+    void add(Business business, int user_id);
 
     //read
 
@@ -25,4 +25,5 @@ public interface BusinessDao {
     //delete
 
     void deleteById(int business_id,int user_id);
+    void clearAll();
 }

@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.rules.ExternalResource;
+import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import static org.junit.Assert.*;
@@ -13,17 +14,18 @@ import static org.junit.Assert.*;
 public class BusinessTest{
 
     private static Sql2oBusinessDao sql2oBusinessDao;
+    private static Connection conn;
+
+
+
     @Before
     public void setUp() throws Exception {
         //uncomment the two lines below to run locally and change to your  credentials
         String connectionString = "jdbc:postgresql://localhost:5432/azure_test";
+        Sql2o sql2o = new Sql2o(connectionString, "wangui", "33234159");
 
+        sql2oBusinessDao=new Sql2oBusinessDao(sql2o);
 
-
-
-        sql2o=new Sql2oDepartmentsDao(sql2o);
-        sql2oUsersDao=new Sql2oUsersDao(sql2o);
-        sql2oNewsDao=new Sql2oNewsDao(sql2o);
         System.out.println("connected to database");
         conn=sql2o.open();
 
@@ -31,9 +33,7 @@ public class BusinessTest{
 
     @After
     public void tearDown() throws Exception {
-        sql2oDepartmentsDao.clearAll();
-        sql2oUsersDao.clearAll();
-        sql2oNewsDao.clearAll();
+        sql2oBusinessDao.clearAll();
         System.out.println("clearing database");
     }
     @AfterClass
@@ -41,6 +41,7 @@ public class BusinessTest{
         conn.close();
         System.out.println("connection closed");
     }
+
 
 
     @Test
@@ -127,4 +128,13 @@ public class BusinessTest{
         assertEquals("www.cars.com",testBusiness.getWebsite());
     }
 
+    @Test
+    public void setUpIdWorks() {
+        Business business=new Business("Ruru Crafts","Ruth Wangui","ruru@crafts.com","0714567895","Jewelry","www" +
+                ".rurucrafts.com");
+        int originalBusinessId=business.getId();
+        sql2oBusinessDao.add(business,1);
+
+        assertNotEquals(originalBusinessId,business.getId());
+    }
 }
