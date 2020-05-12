@@ -4,11 +4,11 @@ import java.util.Objects;
 
 public class category {
     private int id;
-    private String category;
+    private String name;
     private String description;
 
-    public category(String category, String description) {
-        this.category = category;
+    public category(String name, String description) {
+        this.name = name;
         this.description = description;
     }
 
@@ -17,13 +17,13 @@ public class category {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         category category1 = (category) o;
-        return Objects.equals(category, category1.category) &&
+        return Objects.equals(name, category1.name) &&
                 Objects.equals(description, category1.description);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(category, description);
+        return Objects.hash(name, description);
     }
 
     public int getId() {
@@ -34,12 +34,12 @@ public class category {
         this.id = id;
     }
 
-    public String getCategory() {
-        return category;
+    public String getName() {
+        return name;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getDescription() {
