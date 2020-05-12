@@ -64,7 +64,11 @@ public class Sql2oBusinessDao implements BusinessDao {
 
     @Override
     public List<Business> filterByMostRecent() {
-        return null;
+        try (Connection con=sql2o.open()){
+            String sql="SELECT * FROM business ORDER BY creation ASC";
+            return con.createQuery(sql)
+                    .executeAndFetch(Business.class);
+        }
     }
 
     @Override
