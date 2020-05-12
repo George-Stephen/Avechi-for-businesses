@@ -89,9 +89,9 @@ public class Sql2oBusinessDao implements BusinessDao {
     public void deleteById(int business_id) {
         try (Connection con=sql2o.open()){
             String sql="DELETE FROM business WHERE id=:id";
-            String sql2="DELETE FROM business WHERE business_id=:id";
+            String sql2="DELETE FROM business_users WHERE business_id=:business_id";
             con.createQuery(sql).addParameter("id",business_id).executeUpdate();
-            con.createQuery(sql2).addParameter("id",business_id).executeUpdate();
+            con.createQuery(sql2).addParameter("business_id",business_id).executeUpdate();
         }
 
     }
