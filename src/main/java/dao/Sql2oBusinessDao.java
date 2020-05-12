@@ -56,7 +56,10 @@ public class Sql2oBusinessDao implements BusinessDao {
 
     @Override
     public Business findById(int id) {
-        return null;
+        try (Connection con=sql2o.open()){
+            String sql="SELECT * FROM business WHERE id=:id";
+            return con.createQuery(sql).addParameter("id",id).executeAndFetchFirst(Business.class);
+        }
     }
 
     @Override
