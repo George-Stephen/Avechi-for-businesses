@@ -106,7 +106,17 @@ public class App{
         }, new HandlebarsTemplateEngine());
         // review
         get("/reviews",(request, response) -> {
+            Map<String,Object> model = new HashMap<>();
+            model.put("reviews",reviewDao.getAll());
+            return new ModelAndView(model,"reviews.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/reviews/form", (request, response) -> {
+           Map<String,Object>model = new HashMap<>();
+           return new ModelAndView(model, "review-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        post("/reviews/new", (request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+        });
 
 
 
