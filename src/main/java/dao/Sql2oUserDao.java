@@ -3,6 +3,7 @@ package dao;
 
 
 
+import objects.Login;
 import objects.User;
 import objects.review;
 import org.sql2o.Connection;
@@ -109,4 +110,22 @@ public class Sql2oUserDao implements UserDao {
             System.out.println(ex);
         }
     }
+    public Login validate(String name,String password){
+        String sql = "SELECT * FROM signin WHERE name = :name && password = :password";
+         try( Connection conn = sql2o.open()) {
+             return conn.createQuery(sql)
+                     .addParameter("name", name)
+                     .addParameter("password", password)
+                     .executeAndFetchFirst(Login.class);
+         }
+    }
+    public User findOwnerId(String Owner){
+        String sql = "SELECT * FROM  signin WHERE name = :owner";
+        try(Connection con = sql2o.open()){
+            return con.createQuery(sql)
+                    .addParameter("owner",Owner)
+                    .executeAndFetchFirst(User.class);
+        }
+    }
+
 }
