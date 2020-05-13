@@ -66,6 +66,7 @@ public class App{
                 if(user == null){
                     throw new ErrorException(404,"The user does exist");
                 }
+                model.put("login",login);
             } catch (NoSuchAlgorithmException ex){}
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
