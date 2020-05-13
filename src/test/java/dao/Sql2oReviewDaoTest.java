@@ -8,7 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
+import dao.Sql2oBusinessDao;
 import static org.junit.Assert.*;
 
 public class Sql2oReviewDaoTest {
@@ -49,8 +49,8 @@ public class Sql2oReviewDaoTest {
         Business testBusiness = setupBusiness();
         Business otherBusiness = setupBusiness(); //add in some extra data to see if it interferes
         review review1 = setupReviewForBusiness(testBusiness);
-        review review2 = setupReviewForRestaurant(testBusiness);
-        review reviewForOtherRestaurant = setupReviewForRestaurant(otherBusiness);
+        review review2 = setupReviewForBusiness(testBusiness);
+        review reviewForOtherRestaurant = setupReviewForBusiness(otherBusiness);
         assertEquals(2, reviewDao.getAllReviewsByBusiness(testBusiness.getId()).size());
     }
 
@@ -74,7 +74,7 @@ public class Sql2oReviewDaoTest {
     @Test
     public void timeStampIsReturnedCorrectly() throws Exception {
         Business testBusiness = setupBusiness();
-        BusinessDao.add(testBusiness);
+        BusinessDao.add(testBusiness,1);
         review testReview = new review(1, "Samuel", "reliable products", testBusiness.getId());
         reviewDao.add(testReview);
 
@@ -89,7 +89,7 @@ public class Sql2oReviewDaoTest {
     @Test
     public void reviewsAreReturnedInCorrectOrder() throws Exception {
         Business testBusiness = setupBusiness();
-        BusinessDao.add(testBusiness);
+        BusinessDao.add(testBusiness,1);
         review testReview = new review(1, "Captain Kirk","Great work ethic" , testBusiness.getId());
         reviewDao.add(testReview);
         try {
@@ -102,7 +102,7 @@ public class Sql2oReviewDaoTest {
         review testSecondReview = new review(2, "Mr Spock", "great products", testBusiness.getId());
         reviewDao.add(testSecondReview);
 
-        assertEquals("great products", reviewDao.getAllReviewsByBusinessSortedNewestToOldest(testBusiness.getId()).get(0).getContent());
+        assertEquals("great products", reviewDao.getAllReviewsByBusinessSortedNewestToOldest(testBusiness.getId()).get(0).getReview());
     }
 
     //helpers
@@ -120,8 +120,8 @@ public class Sql2oReviewDaoTest {
     }
 
     public Business setupBusiness() {
-        Business business = new Business("Samtech", "Sam", "samtech@samtech.com", "503-402-9874", "tech", "www.samtech.com");
-        BusinessDao.add(business);
+        Business business = new Business("Samtech", "Sam", "samtech@samtech.com", "503-402-9874", 1, "www.samtech.com");
+        BusinessDao.add(business, 1);
         return business;
     }
 }
