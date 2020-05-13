@@ -110,13 +110,13 @@ public class Sql2oUserDao implements UserDao {
             System.out.println(ex);
         }
     }
-    public Login validate(String name,String password){
+    public User validate(String name,String password){
         String sql = "SELECT * FROM signin WHERE name = :name && password = :password";
          try( Connection conn = sql2o.open()) {
              return conn.createQuery(sql)
                      .addParameter("name", name)
                      .addParameter("password", password)
-                     .executeAndFetchFirst(Login.class);
+                     .executeAndFetchFirst(User.class);
          }
     }
     public User findOwnerId(String Owner){

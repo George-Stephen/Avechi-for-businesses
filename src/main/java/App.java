@@ -1,6 +1,7 @@
 import objects.*;
 import dao.*;
 import security.*;
+import exception.*;
 import org.sql2o.*;
 
 import java.security.NoSuchAlgorithmException;
@@ -9,6 +10,8 @@ import java.util.List;
 import java.util.Map;
 import spark.ModelAndView;
 import spark.template.handlebars.HandlebarsTemplateEngine;
+import sun.rmi.runtime.Log;
+
 import static spark.Spark.*;
 public class App{
     public static void main(String[] args) {
@@ -59,7 +62,10 @@ public class App{
             try{
                 String convertPassword = HashPassword.HashPassword(password);
                 Login login = new Login(name, convertPassword);
-                userDao.validate(name,convertPassword);
+                User user = userDao.validate(name,convertPassword);
+                if(user == null){
+                    throw new ErrorException(404,"The user does exist");
+                }
             } catch (NoSuchAlgorithmException ex){}
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -116,6 +122,13 @@ public class App{
         }, new HandlebarsTemplateEngine());
         post("/reviews/new", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
+            String writtenBy = request.queryParams("writtenBy");
+            String userReview = request.queryParams("review");
+            int businessId =Integer.parseInt(request.queryParams("businessId"));
+            int rating = Integer.parseInt(request.queryParams("rating"));
+            review review = new review(businessId,writtenBy,userReview,rating);
+            reviewDao.add(review);
+            return new ModelAndView(model,"success.hbs");
         });
 
 
