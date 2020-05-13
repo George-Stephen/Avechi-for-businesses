@@ -12,4 +12,12 @@ public class LoginTest{
         Login testLogin = new Login("Nyawira", "12345");
         assertEquals(true, testLogin instanceof Login);
     }
+    public void getName(){
+        Login testLogin = new Login("Nyawira", "12345");
+        assertEquals("Nyawira", testLogin.getName());
+    }
+    public void getPassword(){
+        Login testLogin = new Login("Nyawira", "12345");
+        assertEquals("12345", testLogin.getPassword());
+    }
 }
