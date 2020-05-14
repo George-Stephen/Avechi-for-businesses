@@ -1,9 +1,18 @@
-#verification{
-float : right;
-}
+
 body{
 text-align : center ;
+background-image : url("/images/background-companies-4-1.jpg");
+background-size : 1500px;
 }
 button{
 padding-left: 50px;
+width : 200px;
+}
+.index{
+padding: 150px 150px;
+}
+.header{
+font-size : 30px;
+text-decoration: underline;
+color : blue;
 }
