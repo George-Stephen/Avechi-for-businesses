@@ -39,14 +39,6 @@ public class App{
         // signin
         get("/signin", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
-            String name = request.queryParams("name");
-            String email = request.queryParams("email");
-            String phone = request.queryParams("phone");
-            String password = request.queryParams("password");
-            model.put("name", name);
-            model.put("email", email);
-            model.put("phone", phone);
-            model.put("password", password);
             return new ModelAndView(model,"signin-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/confirm", (request, response) -> {
@@ -65,10 +57,6 @@ public class App{
         // login
         get("/login",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
-            String name = request.queryParams("name");
-            String password = request.queryParams("password");
-            model.put("name", name);
-            model.put("password", password);
             return new ModelAndView(model,"login-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/confirm",(request, response) -> {
