@@ -1,9 +1,11 @@
-#verification{
-float : right;
-}
+
 body{
 text-align : center ;
 }
 button{
 padding-left: 50px;
+width : 200px;
+}
+.index{
+padding: 200px 200px;
 }
