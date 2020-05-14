@@ -32,6 +32,10 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/home",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            return new ModelAndView(model,"home.hbs");
+        }, new HandlebarsTemplateEngine());
         // signin
         get("/signin", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
@@ -45,7 +49,7 @@ public class App{
             model.put("password", password);
             return new ModelAndView(model,"signin-form.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/business", (request, response) -> {
+        post("/confirm", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String email = request.queryParams("email");
@@ -67,7 +71,7 @@ public class App{
             model.put("password", password);
             return new ModelAndView(model,"login-form.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/business",(request, response) -> {
+        post("/confirm",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String password = request.queryParams("password");
@@ -127,7 +131,7 @@ public class App{
         get("/reviews",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             model.put("reviews",reviewDao.getAll());
-            return new ModelAndView(model,"reviews.hbs");
+            return new ModelAndView(model,"review-view.hbs");
         }, new HandlebarsTemplateEngine());
         get("/reviews/form", (request, response) -> {
            Map<String,Object>model = new HashMap<>();
@@ -141,7 +145,7 @@ public class App{
             int rating = Integer.parseInt(request.queryParams("rating"));
             review review = new review(businessId,writtenBy,userReview,rating);
             reviewDao.add(review);
-            return new ModelAndView(model,"success.hbs");
+            return new ModelAndView(model,"review-confirm.hbs");
         });
 
 
