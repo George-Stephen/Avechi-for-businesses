@@ -12,7 +12,7 @@ With the use of application, the user can enter, save and view a business and ev
 ## Development
 We, as a group,came together to come up with an application that will allow the users to enter their own businesses into the application and view their own application with their own merits.Other users have the power to enter their own reviews based on their own opinion about the application
 :chart_with_upwards_trend::chart_with_upwards_trend:
-## Technologies:computer:high_brightness:
+## Technologies:computer::high_brightness:
 * HTML
 * C.S.S
 * Java/Spark
