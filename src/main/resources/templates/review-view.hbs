@@ -1,0 +1,29 @@
+{{#partial "content"}}
+    {{#if reviews}}
+        <ul>
+            {{#each reviews}}
+                <li class="card col-lg-6">
+                    <h3 class="card-title" id="review">Name of reviewer:{{reviews.writtenBy}}</h3>
+                    <p id="hero-text">Actual review:{{reviews.review}}</p>
+                    <p id="hero-text">Business Id:{{reviews.businessId}}</p>
+                    <p id="hero-text">Rating given:{{reviews.rating}}</p>
+
+
+                </li>
+                <br><br>
+
+            {{/each}}
+        </ul>
+
+    {{else}}
+        <div class="card col-lg-8">
+            <img src="/images/not.jpeg" class="card-img-top">
+            <p class="card-text" id="review" style="font-size: 22px">No reviews found!!!!</p>
+        </div>
+        <br><br>
+    {{/if}}
+    <a href="/review/form" class="btn btn-lg btn-outline-primary col-md-5"><i class="fas fa-arrow-circle-left mr-3"></i>Create your review here</a>
+
+{{/partial}}
+
+{{> layout.hbs}}

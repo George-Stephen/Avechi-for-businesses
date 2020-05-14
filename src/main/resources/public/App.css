@@ -16,3 +16,28 @@ font-size : 30px;
 text-decoration: underline;
 color : blue;
 }
+
+#success {
+    font-family: 'Marck Script', cursive;
+    font-size: 24px;
+}
+#review {
+    font-family: 'Luckiest Guy', cursive;
+
+}
+#hero-text {
+    font-family: 'Fredericka the Great', cursive;
+    font-size:24px;
+}
+#rating{
+   font-family: 'Kumar One', cursive;
+
+}
+#businessId{
+    font-family: 'Fredericka the Great', cursive;
+    font-size: 24px;
+}
+#name{
+    font-family: 'Aladin', cursive;
+    font-size: 22px;
+}
