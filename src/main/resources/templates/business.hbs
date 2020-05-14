@@ -39,19 +39,30 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{b.name}}</h5>
                                 <hr>
-                                <p class="card-text">{{b.owner}}</p>
-                                <p class="card-text">{{b.email}}</p>
-                                <p class="card-text">{{b.phone}}</p>
-                                <p class="card-text">{{b.website}}</p>
+
+                                <a href="/business/{{b.id}}"><button class="btn btn-primary">View Details</button></a>
+
                             </div>
                         </div>
 
                     {{/each}}
-
-
                 </div>
-            {{else}}
-                <p>No business at the moment</p>
+            {{/if}}
+            {{#if business}}
+                <div class="card-columns">
+
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">{{business.name}}</h5>
+                                <hr>
+                                <p class="card-text">{{business.owner}}</p>
+                                <p class="card-text">{{business.email}}</p>
+                                <p class="card-text">{{business.phone}}</p>
+                                <p class="card-text">{{business.website}}</p>
+                                <p class="card-text">{{business.creation}}</p>
+                            </div>
+                        </div>
+                </div>
             {{/if}}
 
         </div>

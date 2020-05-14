@@ -5,6 +5,7 @@ import exception.*;
 import org.sql2o.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -74,8 +75,21 @@ public class App{
         get("/business",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             model.put("businesses",businessDao.getAll());
-            String categories="categories";
-            model.put(categories,categoryDao.getAll());
+            model.put("categories",categoryDao.getAll());
+
+            List<Business> businesses=businessDao.getAll();
+            List<String> category_name=new ArrayList<>();
+            for(Business b :businesses){
+                category_name.add(categoryDao.findById(b.getCategory_id()).getName());
+            }
+            model.put("category_names",category_name);
+            return new ModelAndView(model,"business.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/:id",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            model.put("categories",categoryDao.getAll());
+            int id=Integer.parseInt(request.params(":id"));
+            model.put("business",businessDao.findById(id));
             return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
         get("/business/most-recent",(request, response) -> {
@@ -87,7 +101,6 @@ public class App{
         }, new HandlebarsTemplateEngine());
         get("/business/category/:id",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
-//            model.put("businesses",businessDao.getAll());
             model.put("categories",categoryDao.getAll());
             int id=Integer.parseInt(request.params(":id"));
             model.put("businesses",businessDao.searchByCategory(id));
@@ -108,10 +121,8 @@ public class App{
             String website = request.queryParams("website");
             User user = userDao.findOwnerId(owner);
             Business business = new Business(name,owner,email,phone,category,website);
-            //changed user.getId() to 1
-            businessDao.add(business,1);
-            //changed success.hbs to biz-form.hbs
-            return new ModelAndView(model, "biz-form.hbs");
+            businessDao.add(business,user.getId());
+            return new ModelAndView(model, "success.hbs.hbs");
         }, new HandlebarsTemplateEngine());
         // category
         get("/categories",(request, response) -> {
