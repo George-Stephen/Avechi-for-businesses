@@ -1,6 +1,6 @@
-# Avechi-for-businesses
+# Avechi-for-businesses:rocket::rocket:
 ## Author
-George Stephen Wangui
+George Stephen Wangui:leader:
 ## description
 This is a web application used to advertise and market business in a large scale way without incurring any costs <br/>
 With the use of application, the user can enter, save and view a business and even write a review concerning an individual <br/> business
