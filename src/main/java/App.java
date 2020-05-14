@@ -37,6 +37,10 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"home.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/about",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            return new ModelAndView(model,"about.hbs");
+        }, new HandlebarsTemplateEngine());
         // signin
         get("/signin", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
