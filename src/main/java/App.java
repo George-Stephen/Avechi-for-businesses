@@ -39,7 +39,7 @@ public class App{
         // signin
         get("/signin", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
-            return new ModelAndView(model,"signin.hbs");
+            return new ModelAndView(model,"signin-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/confirm", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
@@ -57,7 +57,7 @@ public class App{
         // login
         get("/login",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
-            return new ModelAndView(model,"login.hbs");
+            return new ModelAndView(model,"login-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/confirm",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
@@ -133,7 +133,7 @@ public class App{
             int rating = Integer.parseInt(request.queryParams("rating"));
             review review = new review(businessId,writtenBy,userReview,rating);
             reviewDao.add(review);
-            return new ModelAndView(model,"success.hbs");
+            return new ModelAndView(model,"review-confirm.hbs");
         });
 
 
