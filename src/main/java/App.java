@@ -119,7 +119,7 @@ public class App{
         get("/reviews",(request, response) -> {
             Map<String,Object> model = new HashMap<>();
             model.put("reviews",reviewDao.getAll());
-            return new ModelAndView(model,"reviews.hbs");
+            return new ModelAndView(model,"review-view.hbs");
         }, new HandlebarsTemplateEngine());
         get("/reviews/form", (request, response) -> {
            Map<String,Object>model = new HashMap<>();
