@@ -74,10 +74,28 @@ public class App{
         get("/business",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             model.put("businesses",businessDao.getAll());
+            String categories="categories";
+            model.put(categories,categoryDao.getAll());
+            return new ModelAndView(model,"business.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/most-recent",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            model.put("businesses",businessDao.filterByMostRecent());
+            String categories="categories";
+            model.put(categories,categoryDao.getAll());
+            return new ModelAndView(model,"business.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/category/:id",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+//            model.put("businesses",businessDao.getAll());
+            model.put("categories",categoryDao.getAll());
+            int id=Integer.parseInt(request.params(":id"));
+            model.put("businesses",businessDao.searchByCategory(id));
             return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
         get("/business/form",(request, response) -> {
           Map<String,Object>model = new HashMap<>();
+            model.put("categories",categoryDao.getAll());
           return new ModelAndView(model, "biz-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/business/new",(request, response) -> {
@@ -90,8 +108,10 @@ public class App{
             String website = request.queryParams("website");
             User user = userDao.findOwnerId(owner);
             Business business = new Business(name,owner,email,phone,category,website);
-            businessDao.add(business,user.getId());
-            return new ModelAndView(model, "success.hbs");
+            //changed user.getId() to 1
+            businessDao.add(business,1);
+            //changed success.hbs to biz-form.hbs
+            return new ModelAndView(model, "biz-form.hbs");
         }, new HandlebarsTemplateEngine());
         // category
         get("/categories",(request, response) -> {
