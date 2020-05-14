@@ -41,3 +41,10 @@ color : blue;
     font-family: 'Aladin', cursive;
     font-size: 22px;
 }
+.about{
+    padding: 50px 50px;
+}
+article{
+    font-family: 'Aladin', cursive;
+    font-size : 20px;
+}
