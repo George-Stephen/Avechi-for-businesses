@@ -1,0 +1,24 @@
+{{#partial "content"}}
+
+    {{#if categories}}
+        <div class="card-columns">
+            {{#each categories as |c|}}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{c.name}}</h5>
+                        <hr>
+                        <p class="card-text">{{c.description}}</p>
+                    </div>
+                </div>
+
+            {{/each}}
+
+
+        </div>
+    {{else}}
+        <p>No categories at the moment</p>
+    {{/if}}
+
+{{/partial}}
+
+{{> layout.hbs}}
