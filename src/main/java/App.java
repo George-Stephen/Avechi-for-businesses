@@ -32,12 +32,16 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"index.hbs");
         }, new HandlebarsTemplateEngine());
+        get("/home",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            return new ModelAndView(model,"home.hbs");
+        }, new HandlebarsTemplateEngine());
         // signin
         get("/signin", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"signin.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/business", (request, response) -> {
+        post("/confirm", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String email = request.queryParams("email");
@@ -55,7 +59,7 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"login.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/business",(request, response) -> {
+        post("/confirm",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String password = request.queryParams("password");
