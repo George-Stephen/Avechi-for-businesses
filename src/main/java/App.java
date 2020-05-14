@@ -130,7 +130,7 @@ public class App{
             Business business = new Business(name,owner,email,phone,category,website);
             businessDao.add(business,user.getId());
             return new ModelAndView(model, "success.hbs");
-<<<<<<< HEAD
+
         }, new HandlebarsTemplateEngine());
         get("/business/:id",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
@@ -138,8 +138,7 @@ public class App{
             int id=Integer.parseInt(request.params(":id"));
             model.put("business",businessDao.findById(id));
             return new ModelAndView(model,"business.hbs");
-=======
->>>>>>> dd4bb0e984085a51f7630ad6fa2f1a4ef58b2c8f
+
         }, new HandlebarsTemplateEngine());
         // category
         get("/categories",(request, response) -> {
