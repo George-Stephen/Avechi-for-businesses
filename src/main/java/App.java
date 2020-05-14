@@ -126,7 +126,7 @@ public class App{
             User user = userDao.findOwnerId(owner);
             Business business = new Business(name,owner,email,phone,category,website);
             businessDao.add(business,user.getId());
-            return new ModelAndView(model, "success.hbs.hbs");
+            return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
         // category
         get("/categories",(request, response) -> {
