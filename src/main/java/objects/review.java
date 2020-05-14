@@ -4,13 +4,14 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
 
-public class review implements Comparable<review> {
+public class review  {
     private int id;
     private String writtenBy;
     private int businessId;
     private String review;
     private int rating;
-    private long createdat;
+    private Timestamp createdat;
+    private Date date=new Date();
     private String formattedCreatedAt;
 
     public review(int businessId, String writtenBy, String review, int rating) {
@@ -18,8 +19,8 @@ public class review implements Comparable<review> {
         this.businessId = businessId;
         this.review = review;
         this.rating = rating;
-        this.createdat = System.currentTimeMillis();
-        setFormattedCreatedAt();
+        this.createdat = new Timestamp(date.getDate());
+        //setFormattedCreatedAt();
     }
 
     public int getId() {
@@ -62,41 +63,41 @@ public class review implements Comparable<review> {
         this.rating = rating;
     }
 
-    public long getCreatedat() {
+    public Timestamp getCreatedat() {
         return createdat;
     }
 
-    public void setCreatedat() {
-        this.createdat = System.currentTimeMillis();
-    }
-
-    public String getFormattedCreatedAt(){
-        Date date = new Date(createdat);
-        String datePatternToUse = "MM/dd/yyyy @ K:mm a"; //see https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
-        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
-        return sdf.format(date);
-    }
-
-    public void setFormattedCreatedAt(){
-        Date date = new Date(this.createdat);
-        String datePatternToUse = "MM/dd/yyyy @ K:mm a";
-        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
-        this.formattedCreatedAt = sdf.format(date);
-    }
-
-    @Override
-    public int compareTo(review reviewObject) {
-        if (this.createdat < reviewObject.createdat)
-        {
-            return -1; //this object was made earlier than the second object.
-        }
-        else if (this.createdat > reviewObject.createdat){ //this object was made later than the second object
-            return 1;
-        }
-        else {
-            return 0; //they were made at the same time, which is very unlikely, but mathematically not impossible.
-        }
-    }
+//    public void setCreatedat() {
+//        this.createdat = System.currentTimeMillis();
+//    }
+//
+//    public String getFormattedCreatedAt(){
+//        Date date = new Date(createdat);
+//        String datePatternToUse = "MM/dd/yyyy @ K:mm a"; //see https://docs.oracle.com/javase/7/docs/api/java/text/SimpleDateFormat.html
+//        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
+//        return sdf.format(date);
+//    }
+//
+//    public void setFormattedCreatedAt(){
+//        Date date = new Date(this.createdat);
+//        String datePatternToUse = "MM/dd/yyyy @ K:mm a";
+//        SimpleDateFormat sdf = new SimpleDateFormat(datePatternToUse);
+//        this.formattedCreatedAt = sdf.format(date);
+//    }
+//
+//    @Override
+//    public int compareTo(review reviewObject) {
+//        if (this.createdat < reviewObject.createdat)
+//        {
+//            return -1; //this object was made earlier than the second object.
+//        }
+//        else if (this.createdat > reviewObject.createdat){ //this object was made later than the second object
+//            return 1;
+//        }
+//        else {
+//            return 0; //they were made at the same time, which is very unlikely, but mathematically not impossible.
+//        }
+//    }
 
     @Override
     public boolean equals(Object o) {

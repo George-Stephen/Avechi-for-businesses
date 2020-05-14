@@ -137,6 +137,8 @@ public class App{
             model.put("categories",categoryDao.getAll());
             int id=Integer.parseInt(request.params(":id"));
             model.put("business",businessDao.findById(id));
+            model.put("reviews",reviewDao.getAllReviewsByBusiness(id));
+
             return new ModelAndView(model,"business.hbs");
 
         }, new HandlebarsTemplateEngine());
@@ -172,14 +174,14 @@ public class App{
         }, new HandlebarsTemplateEngine());
         post("/reviews/new", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
-            String writtenBy = request.queryParams("writtenBy");
+            String writtenBy = request.queryParams("name");
             String userReview = request.queryParams("review");
             int businessId =Integer.parseInt(request.queryParams("businessId"));
             int rating = Integer.parseInt(request.queryParams("rating"));
             review review = new review(businessId,writtenBy,userReview,rating);
             reviewDao.add(review);
             return new ModelAndView(model,"review-confirm.hbs");
-        });
+        }, new HandlebarsTemplateEngine());
         get("/my-profile", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
             model.put("username", request.session().attribute("username"));
