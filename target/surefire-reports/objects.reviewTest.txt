@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: objects.reviewTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.007 sec <<< FAILURE! - in objects.reviewTest
+review_get_rating(objects.reviewTest)  Time elapsed: 0.004 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<9> but was:<5>
+	at objects.reviewTest.review_get_rating(reviewTest.java:27)
+
+review_get_review(objects.reviewTest)  Time elapsed: 0.002 sec  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[Has great service]> but was:<[great work ethic]>
+	at objects.reviewTest.review_get_review(reviewTest.java:22)
+

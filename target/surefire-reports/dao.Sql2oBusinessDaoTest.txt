@@ -1,0 +1,92 @@
+-------------------------------------------------------------------------------
+Test set: dao.Sql2oBusinessDaoTest
+-------------------------------------------------------------------------------
+Tests run: 15, Failures: 0, Errors: 15, Skipped: 0, Time elapsed: 0.96 sec <<< FAILURE! - in dao.Sql2oBusinessDaoTest
+updateBusinessById(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.698 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+updateBusinessById(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.704 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+filterByMostRecent(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.039 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+filterByMostRecent(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.042 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+findByIdReturnsCorrectInstance(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.039 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+findByIdReturnsCorrectInstance(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.04 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+setUpIdWorks(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.045 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+setUpIdWorks(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.049 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+deleteById(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.033 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+deleteById(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.035 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+allInstancesOfSelectedCategoryAreReturned(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.025 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+allInstancesOfSelectedCategoryAreReturned(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.026 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+allInstancesAreReturned(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.028 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.setUp(Sql2oBusinessDaoTest.java:31)
+
+allInstancesAreReturned(dao.Sql2oBusinessDaoTest)  Time elapsed: 0.029 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+Caused by: org.postgresql.util.PSQLException: FATAL: password authentication failed for user "wangui"
+	at dao.Sql2oBusinessDaoTest.tearDown(Sql2oBusinessDaoTest.java:36)
+
+dao.Sql2oBusinessDaoTest  Time elapsed: 0.036 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oBusinessDaoTest.shutDown(Sql2oBusinessDaoTest.java:41)
+

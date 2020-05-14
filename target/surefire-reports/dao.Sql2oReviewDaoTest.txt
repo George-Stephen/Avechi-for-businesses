@@ -1,0 +1,74 @@
+-------------------------------------------------------------------------------
+Test set: dao.Sql2oReviewDaoTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 14, Skipped: 0, Time elapsed: 0.542 sec <<< FAILURE! - in dao.Sql2oReviewDaoTest
+reviewsAreReturnedInCorrectOrder(dao.Sql2oReviewDaoTest)  Time elapsed: 0.516 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+reviewsAreReturnedInCorrectOrder(dao.Sql2oReviewDaoTest)  Time elapsed: 0.517 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+getAll(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+getAll(dao.Sql2oReviewDaoTest)  Time elapsed: 0.005 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+addingReviewSetsId(dao.Sql2oReviewDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+addingReviewSetsId(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+timeStampIsReturnedCorrectly(dao.Sql2oReviewDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+timeStampIsReturnedCorrectly(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+clearAll(dao.Sql2oReviewDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+clearAll(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+getAllReviewsByBusiness(dao.Sql2oReviewDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+getAllReviewsByBusiness(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+
+deleteById(dao.Sql2oReviewDaoTest)  Time elapsed: 0.002 sec  <<< ERROR!
+org.sql2o.Sql2oException: Could not acquire a connection from DataSource - No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+Caused by: java.sql.SQLException: No suitable driver found for jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'
+	at dao.Sql2oReviewDaoTest.setUp(Sql2oReviewDaoTest.java:26)
+
+deleteById(dao.Sql2oReviewDaoTest)  Time elapsed: 0.003 sec  <<< ERROR!
+java.lang.NullPointerException
+	at dao.Sql2oReviewDaoTest.tearDown(Sql2oReviewDaoTest.java:31)
+

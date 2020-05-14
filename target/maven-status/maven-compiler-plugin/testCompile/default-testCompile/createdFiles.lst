@@ -1,0 +1,8 @@
+objects/reviewTest.class
+objects/BusinessTest.class
+dao/Sql2oReviewDaoTest.class
+dao/Sql2oCategoryDaoTest.class
+dao/Sql2oBusinessDaoTest.class
+dao/Sql2oUserDaoTest.class
+objects/UserTest.class
+objects/LoginTest.class
