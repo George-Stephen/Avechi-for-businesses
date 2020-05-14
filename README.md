@@ -1,17 +1,18 @@
 # Avechi-for-businesses:rocket::rocket:
 ## Author
 George Stephen Wangui:scientist:
-## description
+## Description:notebook::notebook:
 This is a web application used to advertise and market business in a large scale way without incurring any costs <br/>
 With the use of application, the user can enter, save and view a business and even write a review concerning an individual <br/> business
 ## Contributors
-* 1.George Stephen Wangui
-* 2.[Ruth Mwangi](https://github.com/Ruth-Mwangi)
-* 3.[Samuel Wahome](https://github.com/Samuel-dot-cloud)
-* 4.[Albina Muturi](https://github.com/NyawiraMuturi)
+* 1.George Stephen Wangui:man_judge:
+* 2.[Ruth Mwangi](https://github.com/Ruth-Mwangi):woman_office_worker:
+* 3.[Samuel Wahome](https://github.com/Samuel-dot-cloud):office_worker:
+* 4.[Albina Muturi](https://github.com/NyawiraMuturi):woman_office_worker:
 ## Development
 We, as a group,came together to come up with an application that will allow the users to enter their own businesses into the application and view their own application with their own merits.Other users have the power to enter their own reviews based on their own opinion about the application
-## Technologies
+:chart_with_upwards_trend::chart_with_upwards_trend:
+## Technologies:computer:high_brightness:
 * HTML
 * C.S.S
 * Java/Spark
