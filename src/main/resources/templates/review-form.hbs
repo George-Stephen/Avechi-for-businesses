@@ -1,14 +1,18 @@
 {{#partial "content"}}
-    <form class="form-group" action="/reviews" method= post>
+    <form class="form-group" action="/reviews/new" method= post>
         <h3>Add a review and rate a business now:</h3>
         <label for="name">Name: </label>
         <input class="form-control" id="name" name="name" type="text" placeholder="Name of person writing the review..." required>
 
         <label for="review">Actual review: </label>
         <input class="form-control" id="review" name="review" type="text" placeholder="Please enter your review here..." required>
+        {{#if id}}
+            <label for="businessId">Business Id: </label>
+            <input class="form-control" id="businessId" name="businessId" type="number" value="{{id}}"
+                   placeholder="Please input the business Id..." readonly>
 
-        <label for="businessId">Business Id: </label>
-        <input class="form-control" id="businessId" name="businessId" type="number" placeholder="Please input the business Id..." required>
+        {{/if}}
+
 
         <label for="rating">Rating(Please input between 1-10):<i class="far fa-star ml-3"></i> </label>
         <input class="form-control" id="rating" name="rating" type="number" placeholder="Please input a rating..." min="1" max="10" required>

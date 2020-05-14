@@ -8,9 +8,22 @@
     <link href="https://fonts.googleapis.com/css?family=Aladin|Fredericka+the+Great|Kumar+One|Luckiest+Guy|Marck+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-<ul class="nav nav-tabs">
-    <a href="/">Home</a>
-</ul>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li><a class="nav-item active" href="/home" style="padding-right:10px;">Home</a></li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/my-profile">View Profile </a>
+            </li>
+
+        </ul>
+
+    </div>
+</nav>
+
 <div class="container">
     <div class="col-md-12">
         {{#block "content"}}

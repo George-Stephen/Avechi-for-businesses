@@ -17,6 +17,10 @@ text-decoration: underline;
 color : blue;
 }
 
+li{
+list-style:none;
+}
+
 #success {
     font-family: 'Marck Script', cursive;
     font-size: 24px;

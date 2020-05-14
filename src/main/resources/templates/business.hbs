@@ -49,20 +49,54 @@
                 </div>
             {{/if}}
             {{#if business}}
-                <div class="card-columns">
 
-                        <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">{{business.name}}</h5>
-                                <hr>
-                                <p class="card-text">{{business.owner}}</p>
-                                <p class="card-text">{{business.email}}</p>
-                                <p class="card-text">{{business.phone}}</p>
-                                <p class="card-text">{{business.website}}</p>
-                                <p class="card-text">{{business.creation}}</p>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="card-columns">
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{business.name}}</h5>
+                                    <hr>
+                                    <p class="card-text">{{business.owner}}</p>
+                                    <p class="card-text">{{business.email}}</p>
+                                    <p class="card-text">{{business.phone}}</p>
+                                    <p class="card-text">{{business.website}}</p>
+                                    <p class="card-text">{{business.creation}}</p>
+                                </div>
                             </div>
                         </div>
+
+                    </div>
+                    <div class="col-md-4">
+                        <div class="row">
+                            <a href="/reviews/form/{{business.id}}"><button class="btn btn-primary">Write
+                            Review</button></a>
+                        </div>
+                        {{#if reviews}}
+                            <h1>Reviews</h1>
+                            {{#each reviews as |r|}}
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{r.writtenBy}}</h5>
+                                        <hr>
+                                        <p class="card-text">Review : {{r.review}}</p>
+                                        <p class="card-text">Rating : {{r.rating}}</p>
+
+                                    </div>
+                                </div>
+
+                            {{/each}}
+                        {{else}}
+                            <p>Business has no reviews</p>
+
+                        {{/if}}
+
+                    </div>
+
                 </div>
+
+
             {{/if}}
 
         </div>

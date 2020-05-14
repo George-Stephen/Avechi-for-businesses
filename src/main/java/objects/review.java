@@ -1,4 +1,5 @@
 package objects;
+import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Objects;
@@ -47,6 +48,14 @@ public class review implements Comparable<review> {
 
     public int getRating() {
         return rating;
+    }
+
+    public String getWrittenBy() {
+        return writtenBy;
+    }
+
+    public void setWrittenBy(String writtenBy) {
+        this.writtenBy = writtenBy;
     }
 
     public void setRating(int rating) {

@@ -1,0 +1,38 @@
+{{#partial "content"}}
+
+{{#if username}}
+    <h1>{{username}}</h1>
+    <a href="/my-profile">
+        <a href="/my-profile/{{username}}/businesses"><button class="btn btn-primary">View my Businesses</button></a>
+    </a>
+    <div class="row">
+        {{#if businesses}}
+            {{#each businesses as |b|}}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{b.name}}</h5>
+                        <hr>
+                        <p class="card-text">{{b.owner}}</p>
+                        <p class="card-text">{{b.email}}</p>
+                        <p class="card-text">{{b.phone}}</p>
+                        <p class="card-text">{{b.website}}</p>
+                        <a href="/business/delete/{{b.id}}"><button class="btn btn-primary">Delete Business
+                        </button></a>
+
+                    </div>
+                </div>
+
+            {{/each}}
+        {{else}}
+            <p>You have no businesses</p>
+
+        {{/if}}
+
+    </div>
+
+{{/if}}
+
+
+{{/partial}}
+
+{{> layout.hbs}}

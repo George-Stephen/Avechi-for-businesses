@@ -42,7 +42,7 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"signin-form.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/confirm", (request, response) -> {
+        post("/confirm/signup", (request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String email = request.queryParams("email");
@@ -60,7 +60,7 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             return new ModelAndView(model,"login-form.hbs");
         }, new HandlebarsTemplateEngine());
-        post("/confirm",(request, response) -> {
+        post("/confirm/login",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
             String password = request.queryParams("password");
@@ -72,6 +72,10 @@ public class App{
                     throw new ErrorException(404,"The user does exist");
                 }
                 model.put("login",login);
+                request.session().attribute("username",login.getName());
+
+
+
             } catch (NoSuchAlgorithmException ex){}
             return new ModelAndView(model,"success.hbs");
         }, new HandlebarsTemplateEngine());
@@ -89,13 +93,6 @@ public class App{
             model.put("category_names",category_name);
             return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
-        get("/business/:id",(request, response) -> {
-            Map<String,Object>model = new HashMap<>();
-            model.put("categories",categoryDao.getAll());
-            int id=Integer.parseInt(request.params(":id"));
-            model.put("business",businessDao.findById(id));
-            return new ModelAndView(model,"business.hbs");
-        }, new HandlebarsTemplateEngine());
         get("/business/most-recent",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             model.put("businesses",businessDao.filterByMostRecent());
@@ -103,18 +100,20 @@ public class App{
             model.put(categories,categoryDao.getAll());
             return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
-        get("/business/category/:id",(request, response) -> {
+        get("/business/form",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             model.put("categories",categoryDao.getAll());
+            return new ModelAndView(model, "biz-form.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/category/:id",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
             int id=Integer.parseInt(request.params(":id"));
             model.put("businesses",businessDao.searchByCategory(id));
+            model.put("categories",categoryDao.getAll());
+            model.put("reviews",reviewDao.getAllReviewsByBusiness(id));
             return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
-        get("/business/form",(request, response) -> {
-          Map<String,Object>model = new HashMap<>();
-            model.put("categories",categoryDao.getAll());
-          return new ModelAndView(model, "biz-form.hbs");
-        }, new HandlebarsTemplateEngine());
+
         post("/business/new",(request, response) -> {
             Map<String,Object>model = new HashMap<>();
             String name = request.queryParams("name");
@@ -126,7 +125,14 @@ public class App{
             User user = userDao.findOwnerId(owner);
             Business business = new Business(name,owner,email,phone,category,website);
             businessDao.add(business,user.getId());
-            return new ModelAndView(model, "success.hbs.hbs");
+            return new ModelAndView(model, "success.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/:id",(request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            model.put("categories",categoryDao.getAll());
+            int id=Integer.parseInt(request.params(":id"));
+            model.put("business",businessDao.findById(id));
+            return new ModelAndView(model,"business.hbs");
         }, new HandlebarsTemplateEngine());
         // category
         get("/categories",(request, response) -> {
@@ -152,8 +158,10 @@ public class App{
             model.put("reviews",reviewDao.getAll());
             return new ModelAndView(model,"review-view.hbs");
         }, new HandlebarsTemplateEngine());
-        get("/reviews/form", (request, response) -> {
+        get("/reviews/form/:id", (request, response) -> {
            Map<String,Object>model = new HashMap<>();
+           int id=Integer.parseInt(request.params(":id"));
+           model.put("id",id);
            return new ModelAndView(model, "review-form.hbs");
         }, new HandlebarsTemplateEngine());
         post("/reviews/new", (request, response) -> {
@@ -166,6 +174,34 @@ public class App{
             reviewDao.add(review);
             return new ModelAndView(model,"review-confirm.hbs");
         });
+        get("/my-profile", (request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            model.put("username", request.session().attribute("username"));
+            return new ModelAndView(model, "my-profile.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/my-profile/:id/businesses", (request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            String owner=request.params(":id");
+            int id=userDao.findOwnerId(owner).getId();
+            model.put("businesses",businessDao.findById(id));
+            model.put("username", request.session().attribute("username"));
+            return new ModelAndView(model, "my-profile.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/business/delete/:id", (request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+            int id=Integer.parseInt(request.params(":id"));
+            businessDao.deleteById(id);
+            model.put("username", request.session().attribute("username"));
+            return new ModelAndView(model, "my-profile.hbs");
+        }, new HandlebarsTemplateEngine());
+        get("/about", (request, response) -> {
+            Map<String,Object>model = new HashMap<>();
+
+            return new ModelAndView(model, "about.hbs");
+        }, new HandlebarsTemplateEngine());
+
+
+
 
 
 
