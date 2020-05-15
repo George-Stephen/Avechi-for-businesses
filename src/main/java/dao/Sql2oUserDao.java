@@ -111,7 +111,7 @@ public class Sql2oUserDao implements UserDao {
         }
     }
     public User validate(String name,String password){
-        String sql = "SELECT * FROM signin WHERE name = :name && password = :password";
+        String sql = "SELECT * FROM signin WHERE name = :name AND password = :password";
          try( Connection conn = sql2o.open()) {
              return conn.createQuery(sql)
                      .addParameter("name", name)

@@ -199,7 +199,7 @@ public class App{
             Map<String,Object>model = new HashMap<>();
             String owner=request.params(":id");
             int id=userDao.findOwnerId(owner).getId();
-            model.put("businesses",businessDao.findById(id));
+            model.put("businesses",businessDao.getAllBusinessesOwnedByUser(id));
             model.put("username", request.session().attribute("username"));
             return new ModelAndView(model, "my-profile.hbs");
         }, new HandlebarsTemplateEngine());
